@@ -96,7 +96,7 @@ async def get_search_results(query, file_type=None, max_results=10, offset=0):
     # Slice files according to offset and max results
     cursor.skip(offset).limit(max_results)
     # Get list of files
-    files = await cursor.to_list(length=max_results)
+    files = await cursor.to_list(length=offset)
 
     return files, next_offset
 
